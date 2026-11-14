@@ -35,12 +35,19 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("aim") and is_on_floor(): 
 				state = "Jumping"
 				starting_mouse_pos = get_global_mouse_position()
-			print(velocity)
 			if velocity.x == 0 and velocity.y == 0: 
 				$AnimationPlayer.play("slime_idle")
 			if velocity.x > 0: $Icon.flip_h = false
 			elif velocity.x < 0: $Icon.flip_h = true
 			if velocity.x != 0 and is_on_floor(): $AnimationPlayer.play("moving_linear")
+			if not is_on_floor():
+				$Icon.flip_h = false
+				$AnimationPlayer.stop()
+				var angle = snapped(velocity.angle(), PI / 4)
+				var index = wrapi(roundi(angle / (PI / 4)), 0, 8)
+				var index_to_frame = {0:1,1:5,2:0,3:4,4:3,5:6,6:2,7:7,8:1}
+				print(index,index_to_frame[index])
+				$Icon.frame = index_to_frame[index]
 		"Jumping":
 			mouse_pos = get_global_mouse_position()
 			mouse_vector = mouse_pos - starting_mouse_pos
