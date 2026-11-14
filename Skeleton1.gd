@@ -8,7 +8,7 @@ var enemySpeed = 5000
 func _ready():
 	pass
 func _process(delta):
-	while ray.collide_with_bodies == false:
+	if ray.collide_with_bodies == false:
 		time += delta 
 		if time > randf_range(3.0,5.0):
 			time = 0
@@ -22,11 +22,13 @@ func _process(delta):
 	if position.x != targetPosition:
 		if targetPosition > position.x:
 			direction = 1
+			body.flip_h = true
 		else:
 			direction = -1
+			body.flip_h = false
 		velocity.x = direction*enemySpeed*delta
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
 	
-	
+	print(ray.collide_with_bodies)
