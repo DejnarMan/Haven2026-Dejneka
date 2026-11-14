@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://j5ylltbkvldv"]
+
+[ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://slime.tscn" id="1_pyidc"]
+[ext_resource type="Texture2D" uid="uid://c0tryw4fg84qn" path="res://sprites/icon.svg" id="2_vvh5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agkxp"]
+size = Vector2(125.823784, 122)
+
+[node name="Root" type="Node2D" unique_id=1828616594]
+
+[node name="Slime" parent="." unique_id=567918286 instance=ExtResource("1_pyidc")]
+unique_name_in_owner = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=508957124]
+position = Vector2(-3.9999313, 277)
+scale = Vector2(13.656251, 1)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1490053214]
+texture = ExtResource("2_vvh5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2140701922]
+position = Vector2(-1.0148768, 3)
+shape = SubResource("RectangleShape2D_agkxp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2038979564]
+position = Vector2(681.00006, -153.00002)
+scale = Vector2(2.8485966, 7.91482)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2" unique_id=242989172]
+texture = ExtResource("2_vvh5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1051629555]
+shape = SubResource("RectangleShape2D_agkxp")
