@@ -9,7 +9,7 @@ var mouse_pos: Vector2= Vector2.ZERO
 var starting_mouse_pos: Vector2 = Vector2.ZERO
 var mouse_vector: Vector2 = Vector2.ZERO
 var mouse_distance: float= 0
-var encounter :bool = true
+var encounter :bool = false
 func _physics_process(delta: float) -> void:
 	match state:
 		"Movement":
@@ -17,11 +17,13 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			if get_slide_collision_count() > 0:
 				var collider = get_last_slide_collision()
-				if not collider.get_normal() == Vector2.UP:
+				print(collider.get_normal())
+				if not snapped(collider.get_normal().x,0.01) == 0:
 					velocity = velocity_now.bounce(collider.get_normal())
+					
 			if not is_on_floor():
 				velocity += get_gravity() * delta
-			
+
 			# Handle jump.
 			if Input.is_action_just_pressed("jump") and is_on_floor():
 				velocity.y = SMALL_JUMP_VELOCITY
@@ -56,7 +58,6 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("aim") and is_on_floor(): 
 				state = "Jumping"
 				starting_mouse_pos = get_global_mouse_position()
-
 				
 				
 				
