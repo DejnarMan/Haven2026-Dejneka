@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			if get_slide_collision_count() > 0:
 				var collider = get_last_slide_collision()
-				print(collider.get_normal())
 				if not snapped(collider.get_normal().x,0.01) == 0:
 					velocity = velocity_now.bounce(collider.get_normal())
 					
@@ -36,7 +35,12 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("aim") and is_on_floor(): 
 				state = "Jumping"
 				starting_mouse_pos = get_global_mouse_position()
-#			if not is_on_floor 
+			print(velocity)
+			if velocity.x == 0 and velocity.y == 0: 
+				$AnimationPlayer.play("slime_idle")
+			if velocity.x > 0: $Icon.flip_h = false
+			elif velocity.x < 0: $Icon.flip_h = true
+			if velocity.x != 0 and is_on_floor(): $AnimationPlayer.play("moving_linear")
 		"Jumping":
 			mouse_pos = get_global_mouse_position()
 			mouse_vector = mouse_pos - starting_mouse_pos
@@ -46,7 +50,6 @@ func _physics_process(delta: float) -> void:
 				if mouse_distance >= 20: mouse_distance = 20
 				velocity.y = mouse_vector.y * mouse_distance * JUMP_VELOCITY
 				velocity.x = mouse_vector.x * mouse_distance * JUMP_VELOCITY
-				print(velocity)
 				if encounter: state = "Encounter"
 				else: state = "Movement" 
 		"Encounter":
