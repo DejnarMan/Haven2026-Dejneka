@@ -3,21 +3,28 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -40.0
+const SMALL_JUMP_VELOCITY = -400
 var state :String= "Movement"
 var mouse_pos: Vector2= Vector2.ZERO
 var starting_mouse_pos: Vector2 = Vector2.ZERO
 var mouse_vector: Vector2 = Vector2.ZERO
 var mouse_distance: float= 0
+var encounter :bool = true
 func _physics_process(delta: float) -> void:
 	match state:
 		"Movement":
+			var velocity_now := velocity
 			move_and_slide()
+			if get_slide_collision_count() > 0:
+				var collider = get_last_slide_collision()
+				if not collider.get_normal() == Vector2.UP:
+					velocity = velocity_now.bounce(collider.get_normal())
 			if not is_on_floor():
 				velocity += get_gravity() * delta
 			
 			# Handle jump.
 			if Input.is_action_just_pressed("jump") and is_on_floor():
-				velocity.y = JUMP_VELOCITY
+				velocity.y = SMALL_JUMP_VELOCITY
 				
 			if Input.is_action_pressed("left") and is_on_floor(): 
 				velocity.x = -SPEED
@@ -27,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("aim") and is_on_floor(): 
 				state = "Jumping"
 				starting_mouse_pos = get_global_mouse_position()
-				
+#			if not is_on_floor 
 		"Jumping":
 			mouse_pos = get_global_mouse_position()
 			mouse_vector = mouse_pos - starting_mouse_pos
@@ -38,9 +45,18 @@ func _physics_process(delta: float) -> void:
 				velocity.y = mouse_vector.y * mouse_distance * JUMP_VELOCITY
 				velocity.x = mouse_vector.x * mouse_distance * JUMP_VELOCITY
 				print(velocity)
-				state = "Movement"
+				if encounter: state = "Encounter"
+				else: state = "Movement" 
+		"Encounter":
+			var velocity_now := velocity
+			move_and_slide()
+			if get_slide_collision_count() > 0:
+				var collider = get_last_slide_collision()
+				velocity = velocity_now.bounce(collider.get_normal())
+			if Input.is_action_just_pressed("aim") and is_on_floor(): 
+				state = "Jumping"
+				starting_mouse_pos = get_global_mouse_position()
 
-				
 				
 				
 				
