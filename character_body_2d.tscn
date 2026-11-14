@@ -7,7 +7,7 @@ size = Vector2(10, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e0fjy"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1626176536]
+[node name="enemyBody" type="CharacterBody2D" unique_id=1626176536]
 script = ExtResource("1_f50pn")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=576078495]
