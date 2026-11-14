@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var time = 0
 var direction = 1
-var enemySpeed = 5000
+var enemySpeed = 50000
 @onready var ray:RayCast2D = $RayCast2D
 @onready var player:CharacterBody2D = $"../Slime"
 @onready var body:Sprite2D = $Sprite2D

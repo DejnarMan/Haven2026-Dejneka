@@ -61,6 +61,11 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("aim") and is_on_floor(): 
 				state = "Jumping"
 				starting_mouse_pos = get_global_mouse_position()
+#<<<<<<< HEAD
+#func on_win() -> void:
+	
+#=======
+#>>>>>>> b0365e7d07459f51ff83b6fdae861405bab6f90f
 				
 				
 				
