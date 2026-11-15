@@ -7,3 +7,4 @@
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2131174544]
 stream = ExtResource("1_14doj")
 autoplay = true
+parameters/looping = true

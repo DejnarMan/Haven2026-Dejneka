@@ -4,3 +4,6 @@
 
 [node name="mapManager" type="Node2D" unique_id=1500543084]
 script = ExtResource("1_k8m7k")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

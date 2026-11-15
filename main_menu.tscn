@@ -1,11 +1,28 @@
 [gd_scene format=3 uid="uid://crev2inf1u6xe"]
 
 [ext_resource type="Script" uid="uid://uusxfhw2epny" path="res://button.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://cwge4s200kbrp" path="res://sprites/intro_back.png" id="1_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://be5wri14d3edo" path="res://sprites/button_2_houba.png" id="1_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://1h6v34k476kh" path="res://sprites/intro_front.png" id="2_0o4t1"]
 [ext_resource type="Script" uid="uid://pntvw8juh7su" path="res://button_3.gd" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://557f3jsd0mas" path="res://sprites/intro_mid.png" id="3_0k4wn"]
 [ext_resource type="FontFile" uid="uid://dcl5y2j3itw5j" path="res://sprites/ChiKareGo.ttf" id="3_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dcisht3klmmyd" path="res://sprites/button_1.png" id="4_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://dbqs157c54yjw" path="res://sprites/button_exit.png" id="5_dy7ct"]
+
+[sub_resource type="GDScript" id="GDScript_dy7ct"]
+script/source = "extends Parallax2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	get_global_mouse_position()
+"
 
 [node name="mainMenu" type="Control" unique_id=307387326]
 layout_mode = 3
@@ -14,6 +31,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=380112787]
+scale = Vector2(1.5, 1.5)
+scroll_offset = Vector2(318, 187)
+script = SubResource("GDScript_dy7ct")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=56274391]
+texture = ExtResource("1_dy7ct")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1592470750]
+scale = Vector2(1.4540019, 1.5)
+scroll_offset = Vector2(318, 187)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1248365665]
+texture = ExtResource("2_0o4t1")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2106466730]
+scale = Vector2(1.5, 1.5)
+scroll_offset = Vector2(318, 187)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=876797630]
+texture = ExtResource("3_0k4wn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1251933095]
 layout_mode = 1

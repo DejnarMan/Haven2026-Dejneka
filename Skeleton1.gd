@@ -2,16 +2,18 @@ extends CharacterBody2D
 var time = 0
 var direction = 1
 var enemySpeed = 5000
+@onready var parent:= get_parent()
 @onready var ray:RayCast2D = $RayCast2D
-@onready var player:CharacterBody2D = $"../../Slime"
+var player:CharacterBody2D
 @onready var body:Sprite2D = $Sprite2D
 @onready var root:Node2D = get_tree().current_scene
+
 var rnd = RandomNumberGenerator
 var encounter_number = 0
 var HP = 20
 var DMG = 20
 func _ready():
-	pass
+	player = get_tree().get_first_node_in_group("slime")
 	encounter_number = randi() % 4 + 1
 func _process(delta):
 	if ray.collide_with_bodies == false:
