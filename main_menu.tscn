@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://crev2inf1u6xe"]
+
+[ext_resource type="Script" uid="uid://uusxfhw2epny" path="res://button.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://be5wri14d3edo" path="res://sprites/button_2_houba.png" id="1_nlkkf"]
+[ext_resource type="Script" uid="uid://pntvw8juh7su" path="res://button_3.gd" id="2_7vrkn"]
+[ext_resource type="FontFile" uid="uid://dcl5y2j3itw5j" path="res://sprites/ChiKareGo.ttf" id="3_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dcisht3klmmyd" path="res://sprites/button_1.png" id="4_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://dbqs157c54yjw" path="res://sprites/button_exit.png" id="5_dy7ct"]
+
+[node name="mainMenu" type="Control" unique_id=307387326]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1251933095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -24.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5600004, 1.5199996)
+accessibility_region = true
+alignment = 1
+
+[node name="play_button" type="Button" parent="VBoxContainer" unique_id=2082923004]
+layout_mode = 2
+icon = ExtResource("1_nlkkf")
+flat = true
+script = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="VBoxContainer/play_button" unique_id=697175060]
+layout_mode = 0
+offset_left = 37.890617
+offset_top = 30.263166
+offset_right = 77.89062
+offset_bottom = 53.263165
+theme_override_fonts/font = ExtResource("3_qe12f")
+text = "PLAY"
+
+[node name="options_button" type="Button" parent="VBoxContainer" unique_id=1617933459]
+layout_mode = 2
+icon = ExtResource("4_8qtwp")
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/options_button" unique_id=77259052]
+layout_mode = 0
+offset_left = 28.515621
+offset_top = 13.684227
+offset_right = 99.515625
+offset_bottom = 36.684227
+theme_override_fonts/font = ExtResource("3_qe12f")
+text = "OPTIONS"
+
+[node name="exit_button" type="Button" parent="VBoxContainer" unique_id=1744575197]
+layout_mode = 2
+icon = ExtResource("5_dy7ct")
+flat = true
+script = ExtResource("2_7vrkn")
+
+[node name="Label" type="Label" parent="VBoxContainer/exit_button" unique_id=1798288658]
+layout_mode = 0
+offset_left = 38.67187
+offset_top = 14.421085
+offset_right = 78.671875
+offset_bottom = 37.42109
+theme_override_fonts/font = ExtResource("3_qe12f")
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/options_button" to="VBoxContainer/options_button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="VBoxContainer/options_button" method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="VBoxContainer/exit_button" method="_on_pressed"]

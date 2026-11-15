@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c4d72dvakeurp"]
+
+[ext_resource type="FontFile" uid="uid://dcl5y2j3itw5j" path="res://sprites/ChiKareGo.ttf" id="2_tybkg"]
+[ext_resource type="Texture2D" uid="uid://00jw880xval1" path="res://sprites/Sprite-0032.png" id="4_gxl1c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5m0x8"]
+load_path = "res://.godot/imported/Sprite-0029.png-c9c21f6acd96e8e88cf93d795393f229.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_654h1"]
+load_path = "res://.godot/imported/Sprite-0031.png-04466215273f8a77f70118acba3eb962.ctex"
+
+[node name="playerUI" type="Control" unique_id=1764309193]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=149292076]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.4506071, 1.0829679)
+
+[node name="hp_image" type="TextureRect" parent="HBoxContainer" unique_id=562726198]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_5m0x8")
+expand_mode = 2
+
+[node name="hp_text" type="Label" parent="HBoxContainer" unique_id=525301226]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tybkg")
+text = "HP_here"
+
+[node name="dmg_image" type="TextureRect" parent="HBoxContainer" unique_id=374276661]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_654h1")
+
+[node name="dmg_text" type="Label" parent="HBoxContainer" unique_id=480687200]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tybkg")
+text = "HP_here"
+
+[node name="options" type="Button" parent="." unique_id=1064843529]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_right = -1.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(1.004, 1)
+icon = ExtResource("4_gxl1c")
+flat = true
+alignment = 2
