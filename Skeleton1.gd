@@ -46,4 +46,5 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 		player.velocity = Vector2.ZERO
 		root.create_encounter("Skeleton",encounter_number)
 		queue_free()
+
 	

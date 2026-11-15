@@ -40,6 +40,8 @@ func _ready() -> void:
 	MapGenerate()
 	MapGenerate()
 	MapGenerate()
+	MapGenerate()
+	MapGenerate()
 
 
 

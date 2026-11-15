@@ -115,6 +115,6 @@ offset_bottom = 37.42109
 theme_override_fonts/font = ExtResource("3_qe12f")
 text = "EXIT"
 
-[connection signal="pressed" from="VBoxContainer/options_button" to="VBoxContainer/options_button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/play_button" to="VBoxContainer/play_button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit_button" to="VBoxContainer/options_button" method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit_button" to="VBoxContainer/exit_button" method="_on_pressed"]
