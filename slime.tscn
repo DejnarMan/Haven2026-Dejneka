@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bhyctoxdkruw4"]
 
 [ext_resource type="Script" uid="uid://x1ii2klft78c" path="res://slime.gd" id="1_5jc4t"]
+[ext_resource type="Texture2D" uid="uid://cb21vncuhg2xu" path="res://sprites/smerovaclo_01.png" id="2_5jc4t"]
+[ext_resource type="PackedScene" uid="uid://c4d72dvakeurp" path="res://player_ui.tscn" id="3_4l1t8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2d52u"]
 load_path = "res://.godot/imported/SLime_all001.png-9f4bf4164c5bccf30ddd2a220cd45622.ctex"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vvh5c"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agkxp"]
+size = Vector2(14.75, 14.5)
 
 [sub_resource type="Animation" id="Animation_4l1t8"]
 length = 0.001
@@ -67,6 +69,10 @@ _data = {
 [node name="Slime" type="CharacterBody2D" unique_id=567918286]
 script = ExtResource("1_5jc4t")
 
+[node name="Pointer" type="Sprite2D" parent="." unique_id=606545053]
+texture = ExtResource("2_5jc4t")
+offset = Vector2(106, 8)
+
 [node name="Icon" type="Sprite2D" parent="." unique_id=1430477584]
 texture = SubResource("CompressedTexture2D_2d52u")
 hframes = 8
@@ -74,9 +80,15 @@ vframes = 8
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323864298]
-shape = SubResource("CircleShape2D_vvh5c")
+shape = SubResource("RectangleShape2D_agkxp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=247721583]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1814898924]
 libraries/ = SubResource("AnimationLibrary_jayke")
+
+[node name="playerUI" parent="." unique_id=1764309193 instance=ExtResource("3_4l1t8")]
+offset_left = -276.0
+offset_top = -176.0
+offset_right = -276.0
+offset_bottom = -176.0
