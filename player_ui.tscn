@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c4d72dvakeurp"]
 
+[ext_resource type="Script" uid="uid://d1iriveb4pw0r" path="res://player_ui.gd" id="1_654h1"]
 [ext_resource type="FontFile" uid="uid://dcl5y2j3itw5j" path="res://sprites/ChiKareGo.ttf" id="2_tybkg"]
 [ext_resource type="Texture2D" uid="uid://00jw880xval1" path="res://sprites/Sprite-0032.png" id="4_gxl1c"]
 
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_654h1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=149292076]
 layout_mode = 1
@@ -31,7 +33,6 @@ expand_mode = 2
 [node name="hp_text" type="Label" parent="HBoxContainer" unique_id=525301226]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tybkg")
-text = "HP_here"
 
 [node name="dmg_image" type="TextureRect" parent="HBoxContainer" unique_id=374276661]
 layout_mode = 2

@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://j5ylltbkvldv"]
 
 [ext_resource type="Script" uid="uid://csx0oek0akawv" path="res://root.gd" id="1_28aoi"]
+[ext_resource type="PackedScene" uid="uid://cdebn40jchqxl" path="res://super_paralax.tscn" id="2_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://slime.tscn" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://dp0oy4uhcwvam" path="res://map_part_1.tscn" id="5_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://bv4yp84qdioca" path="res://map_manager.tscn" id="6_l8v81"]
 
 [node name="root" type="Node2D" unique_id=244068429]
 script = ExtResource("1_28aoi")
+
+[node name="SuperParalax" parent="." unique_id=831882949 instance=ExtResource("2_jnlp7")]
 
 [node name="Slime" parent="." unique_id=567918286 instance=ExtResource("4_jnlp7")]
 unique_name_in_owner = true

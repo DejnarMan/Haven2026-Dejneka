@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d4jg188m1fr82" path="res://sprites/tileset_generic_002.png" id="1_oo6b6"]
 [ext_resource type="Texture2D" uid="uid://dogdam06usoix" path="res://sprites/tileset_generic_006.png" id="2_hknjj"]
 [ext_resource type="PackedScene" uid="uid://cavw1dot6pnje" path="res://Skeleton1.tscn" id="3_hknjj"]
+[ext_resource type="PackedScene" uid="uid://dl44fqcq6fy7" path="res://rattus.tscn" id="4_l3qp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnlp7"]
 texture = ExtResource("1_oo6b6")
@@ -377,3 +378,6 @@ tile_set = SubResource("TileSet_agkxp")
 
 [node name="Skeleton1" parent="." unique_id=1626176536 instance=ExtResource("3_hknjj")]
 position = Vector2(-38, 96)
+
+[node name="Rattus" parent="." unique_id=622157973 instance=ExtResource("4_l3qp8")]
+position = Vector2(-114.36776, -37.269722)

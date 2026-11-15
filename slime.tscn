@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x1ii2klft78c" path="res://slime.gd" id="1_5jc4t"]
 [ext_resource type="Texture2D" uid="uid://cb21vncuhg2xu" path="res://sprites/smerovaclo_01.png" id="2_5jc4t"]
+[ext_resource type="PackedScene" uid="uid://c4d72dvakeurp" path="res://player_ui.tscn" id="3_4l1t8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2d52u"]
 load_path = "res://.godot/imported/SLime_all001.png-9f4bf4164c5bccf30ddd2a220cd45622.ctex"
@@ -85,3 +86,9 @@ shape = SubResource("RectangleShape2D_agkxp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1814898924]
 libraries/ = SubResource("AnimationLibrary_jayke")
+
+[node name="playerUI" parent="." unique_id=1764309193 instance=ExtResource("3_4l1t8")]
+offset_left = -276.0
+offset_top = -176.0
+offset_right = -276.0
+offset_bottom = -176.0
