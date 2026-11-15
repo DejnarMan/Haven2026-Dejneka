@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dgd7rgw1mgho6"]
+
+[ext_resource type="AudioStream" uid="uid://dypejbvl4jr1d" path="res://sprites/soundtrack_0.2.mp3" id="1_14doj"]
+
+[node name="Soundtrack" type="Node2D" unique_id=958107785]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2131174544]
+stream = ExtResource("1_14doj")
+autoplay = true
