@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cgslfcngnsc2u"]
 
 [ext_resource type="Texture2D" uid="uid://bwmva3pr8t087" path="res://sprites/tileset_generic_001.png" id="1_i32on"]
-[ext_resource type="Script" uid="uid://cyybycp33g842" path="res://teleport_to_base.gd" id="2_og2y4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3ooi"]
 texture = ExtResource("1_i32on")
@@ -60,7 +59,6 @@ tile_set = SubResource("TileSet_n7mfn")
 
 [node name="win_zone" type="Area2D" parent="." unique_id=239272699]
 position = Vector2(385, 74)
-script = ExtResource("2_og2y4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win_zone" unique_id=1825797445]
 shape = SubResource("CircleShape2D_n7mfn")
