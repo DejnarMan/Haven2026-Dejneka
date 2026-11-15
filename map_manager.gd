@@ -10,7 +10,6 @@ var a
 func MapGenerate() -> void:
 	#for i in range(3):
 	a = randi_range(0,3)
-
 	match a:
 		0:
 			var map = map_1.instantiate()
@@ -41,6 +40,14 @@ func _ready() -> void:
 	MapGenerate()
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	pass # Replace with function body.

@@ -7,12 +7,12 @@ var enemySpeed = 5000
 @onready var body:Sprite2D = $Sprite2D
 @onready var root:Node2D = get_tree().current_scene
 var rnd = RandomNumberGenerator
-var encounter_number = 3
+var encounter_number = 0
 var HP = 20
 var DMG = 20
 func _ready():
 	pass
-#	encounter_number = randi() % 5 + 1
+	encounter_number = randi() % 4 + 1
 func _process(delta):
 	if ray.collide_with_bodies == false:
 		time += delta 
