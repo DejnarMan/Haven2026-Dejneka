@@ -1,6 +1,11 @@
 extends Node2D
-const SKELETON_1 =preload("res://encounter_1.tscn")
-var dictionary_of_skel_en :Dictionary = {1:SKELETON_1}
+const SKELETON_1  =preload("res://encounter_1.tscn")
+const SKELETON_2  =preload("res://encounter_2.tscn")
+const SKELETON_3  =preload("res://encounter_3.tscn")
+const SKELETON_4  =preload("res://encounter_4.tscn")
+const SKELETON_5  =preload("res://encounter_5.tscn")
+
+var dictionary_of_skel_en :Dictionary = {1:SKELETON_1,2:SKELETON_2,3:SKELETON_3,4:SKELETON_4,5:SKELETON_5}
 var dictionary_of_creatures := {"Skeleton":dictionary_of_skel_en}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

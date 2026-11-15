@@ -3,11 +3,11 @@ var time = 0
 var direction = 1
 var enemySpeed = 5000
 @onready var ray:RayCast2D = $RayCast2D
-@onready var player:CharacterBody2D = $"../Slime"
+@onready var player:CharacterBody2D = $"../../Slime"
 @onready var body:Sprite2D = $Sprite2D
-@onready var root:Node2D = $".."
+@onready var root:Node2D = get_tree().current_scene
 var rnd = RandomNumberGenerator
-var encounter_number = 1
+var encounter_number = 3
 var HP = 20
 var DMG = 20
 func _ready():
@@ -41,6 +41,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body == player: 
 		player.encounter = true
+		player.velocity = Vector2.ZERO
 		root.create_encounter("Skeleton",encounter_number)
 		queue_free()
 	

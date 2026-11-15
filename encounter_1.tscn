@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://bqa5qytpk0io7"]
 
+[ext_resource type="Texture2D" uid="uid://cncbaiqojb2d" path="res://sprites/tileset_generic_007(2).png" id="1_op3fb"]
 [ext_resource type="Texture2D" uid="uid://ddiker5yd7o1l" path="res://sprites/tileset_generic_007(1).png" id="1_p2bdl"]
 [ext_resource type="Script" uid="uid://cjo01yx5u62ro" path="res://encounter_1.gd" id="2_p2bdl"]
+[ext_resource type="Texture2D" uid="uid://d3slvrll6ajj6" path="res://sprites/sirit_flame.png" id="4_y3ooi"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_op3fb"]
-texture = ExtResource("1_p2bdl")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jicrn"]
+texture = ExtResource("1_op3fb")
 9:0/0 = 0
 10:0/0 = 0
 12:0/0 = 0
@@ -53,7 +55,9 @@ texture = ExtResource("1_p2bdl")
 12:3/0 = 0
 13:3/0 = 0
 25:3/0 = 0
+25:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:3/0 = 0
+27:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
@@ -65,7 +69,9 @@ texture = ExtResource("1_p2bdl")
 10:4/0 = 0
 11:4/0 = 0
 25:4/0 = 0
+25:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:4/0 = 0
+27:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:5/0 = 0
 6:5/0 = 0
 7:5/0 = 0
@@ -81,7 +87,9 @@ texture = ExtResource("1_p2bdl")
 18:5/0 = 0
 19:5/0 = 0
 25:5/0 = 0
+25:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:5/0 = 0
+27:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:6/0 = 0
 1:6/0 = 0
 2:6/0 = 0
@@ -162,8 +170,12 @@ texture = ExtResource("1_p2bdl")
 1:10/0 = 0
 2:10/0 = 0
 3:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
 2:11/0 = 0
 3:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
 11:11/0 = 0
 12:11/0 = 0
 14:11/0 = 0
@@ -274,9 +286,9 @@ texture = ExtResource("1_p2bdl")
 1:31/0 = 0
 1:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_bguaa"]
+[sub_resource type="TileSet" id="TileSet_28aoi"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_op3fb")
+sources/0 = SubResource("TileSetAtlasSource_jicrn")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7mfn"]
 
@@ -556,9 +568,47 @@ size = Vector2(20, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bguaa"]
 size = Vector2(16, 10)
 
+[sub_resource type="Animation" id="Animation_jicrn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SiritFlame:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_26j38"]
+resource_name = "new_animation"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SiritFlame:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0031079203, 0.03333333, 0.06666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cr012"]
+_data = {
+&"RESET": SubResource("Animation_jicrn"),
+&"sirit_wigling": SubResource("Animation_26j38")
+}
+
 [node name="Encounter_1" type="TileMapLayer" unique_id=1974732102]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAB0AAAABAAAAAAABAB0AAAACAAAAAAABAB0AAAADAAAAAAABAB0AAAAEAAAAAAABAB0AAAAFAAAAAAABAB0AAAAGAAAAAAABAB0AAAAHAAAAAAABAB0AAAAIAAAAAAABAB0AAAAJAAAAAAABAB0AAAAKAAAAAAABAB0AAAALAAAAAAABAB0AAAAMAAAAAAABAB0AAAANAAAAAAABAB0AAAAOAAAAAAABAB0AAAAPAAAAAAABAB0AAAARAAAAAAABAB0AAAAQAAAAAAABAB0AAAAAAAEAAAABAB4AAAAAAAIAAAABAB0AAAAAAAMAAAABAB4AAAAAAAQAAAABAB0AAAAAAAUAAAABAB4AAAAAAAYAAAABAB0AAAAAAAcAAAABAB4AAAAAAAgAAAABAB0AAAAAAAkAAAABAB4AAAABAAkAAAABAB8AAAACAAkAAAABAB8AAAADAAkAAAABAB8AAAAEAAkAAAABAB8AAAAFAAkAAAABAB8AAAAGAAkAAAABAB8AAAAHAAkAAAABAB8AAAAIAAkAAAABAB8AAAAJAAkAAAABAB8AAAAKAAkAAAABAB8AAAALAAkAAAABAB8AAAAMAAkAAAABAB8AAAANAAkAAAABAB8AAAAOAAkAAAABAB8AAAAPAAkAAAABAB8AAAAQAAkAAAABAB8AAAARAAkAAAABAB4AAAARAAgAAAABAB0AAAARAAcAAAABAB4AAAARAAYAAAABAB0AAAARAAUAAAABAB4AAAARAAQAAAABAB0AAAARAAMAAAABAB4AAAARAAIAAAABAB0AAAARAAEAAAABAB4AAAAIAAMAAAABAB0AAAAIAAQAAAABAB4AAAAMAAUAAAABAB0AAAAMAAYAAAABAB4AAAAHAAgAAAABAB4AAAAIAAgAAAABAB4AAAAJAAgAAAABAB4AAAA=")
-tile_set = SubResource("TileSet_bguaa")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAB0AAAABAAAAAAABAB0AAAACAAAAAAABAB0AAAADAAAAAAABAB0AAAAEAAAAAAABAB0AAAAFAAAAAAABAB0AAAAGAAAAAAABAB0AAAAHAAAAAAABAB0AAAAIAAAAAAABAB0AAAAJAAAAAAABAB0AAAAKAAAAAAABAB0AAAALAAAAAAABAB0AAAAMAAAAAAABAB0AAAANAAAAAAABAB0AAAAOAAAAAAABAB0AAAAPAAAAAAABAB0AAAARAAAAAAABAB0AAAAQAAAAAAABAB0AAAAAAAEAAAABAB0AAAAAAAIAAAABAB4AAAAAAAMAAAABAB0AAAAAAAQAAAABAB4AAAAAAAUAAAABAB0AAAAAAAYAAAABAB4AAAAAAAcAAAABAB0AAAAAAAgAAAABAB4AAAAAAAkAAAABAB0AAAABAAkAAAABAB8AAAACAAkAAAABAB8AAAADAAkAAAABAB8AAAAEAAkAAAABAB8AAAAFAAkAAAABAB8AAAAGAAkAAAABAB8AAAAHAAkAAAABAB8AAAAIAAkAAAABAB8AAAAJAAkAAAABAB8AAAAKAAkAAAABAB8AAAALAAkAAAABAB8AAAAMAAkAAAABAB8AAAANAAkAAAABAB8AAAAOAAkAAAABAB8AAAAPAAkAAAABAB8AAAAQAAkAAAABAB8AAAARAAkAAAABAB4AAAARAAgAAAABAB0AAAARAAcAAAABAB4AAAARAAYAAAABAB0AAAARAAUAAAABAB4AAAARAAQAAAABAB0AAAARAAMAAAABAB4AAAARAAIAAAABAB0AAAARAAEAAAABAB4AAAAIAAMAAAABAB0AAAAIAAQAAAABAB4AAAAMAAUAAAABAB0AAAAMAAYAAAABAB4AAAAHAAgAAAABAB4AAAAIAAgAAAABAB4AAAAJAAgAAAABAB4AAAA=")
+tile_set = SubResource("TileSet_28aoi")
 script = ExtResource("2_p2bdl")
 
 [node name="win_zone" type="Area2D" parent="." unique_id=239272699]
@@ -601,6 +651,16 @@ shape = SubResource("RectangleShape2D_6k8qn")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D" unique_id=1787626339]
 position = Vector2(200, 80)
 shape = SubResource("RectangleShape2D_bguaa")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=973645921]
+
+[node name="SiritFlame" type="Sprite2D" parent="." unique_id=598162756]
+position = Vector2(239, 38)
+texture = ExtResource("4_y3ooi")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=877437910]
+libraries/ = SubResource("AnimationLibrary_cr012")
 
 [connection signal="body_entered" from="win_zone" to="." method="_on_win_zone_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
