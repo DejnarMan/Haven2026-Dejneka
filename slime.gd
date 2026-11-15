@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 	match state:
 		"Movement":
-			
+			$Pointer.visible = false
 			var velocity_now := velocity
 			move_and_slide()
 			if get_slide_collision_count() > 0:
@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 				$Icon.frame = index_to_frame[index]
 			$Camera2D.enabled = true
 		"Jumping":
+			$Pointer.visible = true
 			mouse_pos = get_global_mouse_position()
 			mouse_vector = mouse_pos - starting_mouse_pos
 			if Input.is_action_just_released("aim"): 
@@ -69,7 +70,9 @@ func _physics_process(delta: float) -> void:
 				velocity.x = mouse_vector.x * mouse_distance * JUMP_VELOCITY
 				if encounter: state = "Encounter"
 				else: state = "Movement" 
+			$Pointer.rotation = (-mouse_vector).angle()
 		"Encounter":
+			$Pointer.visible = false
 			$Camera2D.enabled = false
 			var velocity_now := velocity
 			move_and_slide()

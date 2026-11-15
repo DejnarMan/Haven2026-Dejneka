@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dl44fqcq6fy7"]
+
+[ext_resource type="Script" uid="uid://bg6f1w5bjb8qw" path="res://rattus.gd" id="1_ctrv7"]
+[ext_resource type="Texture2D" uid="uid://fjfc2ed25gbc" path="res://sprites/krysa_fly.png" id="2_hw3up"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j385"]
+radius = 34.539833
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7cc0q"]
+radius = 179.10052
+
+[node name="Rattus" type="Node2D" unique_id=622157973]
+script = ExtResource("1_ctrv7")
+
+[node name="Teleport" type="Area2D" parent="." unique_id=1423971476]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport" unique_id=213807688]
+shape = SubResource("CircleShape2D_0j385")
+
+[node name="See" type="Area2D" parent="." unique_id=692023611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="See" unique_id=221896172]
+shape = SubResource("CircleShape2D_7cc0q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1882465176]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404869713]
+position = Vector2(0, -1)
+texture = ExtResource("2_hw3up")
+hframes = 4

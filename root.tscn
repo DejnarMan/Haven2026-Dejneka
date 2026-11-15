@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtoeby0smo1pd" path="res://sprites/seklly entru 001.png" id="2_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://slime.tscn" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://dp0oy4uhcwvam" path="res://map_part_1.tscn" id="5_jnlp7"]
+[ext_resource type="PackedScene" uid="uid://cdebn40jchqxl" path="res://super_paralax.tscn" id="6_l8v81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7mfn"]
 size = Vector2(22, 54)
@@ -15,6 +16,9 @@ height = 74.0
 
 [node name="root" type="Node2D" unique_id=244068429]
 script = ExtResource("1_28aoi")
+
+[node name="SuperParalax" parent="." unique_id=831882949 instance=ExtResource("6_l8v81")]
+position = Vector2(34.111786, 21.747131)
 
 [node name="Slime" parent="." unique_id=567918286 instance=ExtResource("4_jnlp7")]
 unique_name_in_owner = true
