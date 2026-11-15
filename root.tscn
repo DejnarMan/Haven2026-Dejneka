@@ -1,17 +1,9 @@
 [gd_scene format=3 uid="uid://j5ylltbkvldv"]
 
 [ext_resource type="Script" uid="uid://csx0oek0akawv" path="res://root.gd" id="1_28aoi"]
-[ext_resource type="Script" uid="uid://4wutkv3q62mn" path="res://Skeleton1.gd" id="1_pyidc"]
-[ext_resource type="Texture2D" uid="uid://dtoeby0smo1pd" path="res://sprites/seklly entru 001.png" id="2_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://bhyctoxdkruw4" path="res://slime.tscn" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://dp0oy4uhcwvam" path="res://map_part_1.tscn" id="5_jnlp7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7mfn"]
-size = Vector2(22, 54)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agkxp"]
-radius = 24.0
-height = 74.0
+[ext_resource type="PackedScene" uid="uid://bv4yp84qdioca" path="res://map_manager.tscn" id="6_l8v81"]
 
 [node name="root" type="Node2D" unique_id=244068429]
 script = ExtResource("1_28aoi")
@@ -20,30 +12,6 @@ script = ExtResource("1_28aoi")
 unique_name_in_owner = true
 position = Vector2(-292, 142)
 
+[node name="mapManager" parent="." unique_id=1500543084 instance=ExtResource("6_l8v81")]
+
 [node name="map_part_1" parent="." unique_id=684138518 instance=ExtResource("5_jnlp7")]
-
-[node name="Skeleton2" type="CharacterBody2D" parent="map_part_1" unique_id=1626176536]
-visible = false
-position = Vector2(-134, 75)
-script = ExtResource("1_pyidc")
-
-[node name="RayCast2D" type="RayCast2D" parent="map_part_1/Skeleton2" unique_id=576078495]
-position = Vector2(0, 25)
-target_position = Vector2(60, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map_part_1/Skeleton2" unique_id=815477449]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_n7mfn")
-
-[node name="Sprite2D" type="Sprite2D" parent="map_part_1/Skeleton2" unique_id=1685182970]
-position = Vector2(-1, 0)
-texture = ExtResource("2_vvh5c")
-hframes = 4
-
-[node name="Area2D" type="Area2D" parent="map_part_1/Skeleton2" unique_id=1807831241]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map_part_1/Skeleton2/Area2D" unique_id=689461194]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_agkxp")
-
-[connection signal="body_entered" from="map_part_1/Skeleton2/Area2D" to="map_part_1/Skeleton2" method="_on_area_2d_body_entered"]

@@ -14,6 +14,8 @@ var HP :int = 100
 var TP_pos :Vector2 = Vector2.ZERO
 var DMG = 10
 
+func _ready() -> void:
+	add_to_group("slime")
 func _physics_process(delta: float) -> void:
 
 	match state:

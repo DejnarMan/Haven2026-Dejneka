@@ -6,8 +6,10 @@ const map_3 = preload("res://map_part_3.tscn")
 const map_4 = preload("res://map_part_4.tscn")
 var lenght = 950
 var a 
-
+@onready var slime = get_node("/root/Slime")
+@onready var player:CharacterBody2D = slime
 func MapGenerate() -> void:
+	
 	#for i in range(3):
 	a = randi_range(0,3)
 	match a:
