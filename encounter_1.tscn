@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bqa5qytpk0io7"]
 
 [ext_resource type="Texture2D" uid="uid://ddiker5yd7o1l" path="res://sprites/tileset_generic_007(1).png" id="1_p2bdl"]
-[ext_resource type="Script" uid="uid://cyybycp33g842" path="res://teleport_to_base.gd" id="2_op3fb"]
+[ext_resource type="Script" uid="uid://cjo01yx5u62ro" path="res://encounter_1.gd" id="2_p2bdl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_op3fb"]
 texture = ExtResource("1_p2bdl")
@@ -250,8 +250,11 @@ texture = ExtResource("1_p2bdl")
 11:22/0 = 0
 12:22/0 = 0
 1:23/0 = 0
+1:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:23/0 = 0
+2:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:23/0 = 0
+3:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:23/0 = 0
 11:23/0 = 0
 12:23/0 = 0
@@ -263,11 +266,16 @@ texture = ExtResource("1_p2bdl")
 2:26/0 = 0
 2:27/0 = 0
 1:29/0 = 0
+1:29/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:30/0 = 0
+1:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:30/0 = 0
+3:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:31/0 = 0
+1:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_bguaa"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_op3fb")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7mfn"]
@@ -542,10 +550,10 @@ sources/0 = SubResource("TileSetAtlasSource_y3ooi")
 [node name="Encounter_1" type="TileMapLayer" unique_id=1974732102]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAB0AAAABAAAAAAABAB0AAAACAAAAAAABAB0AAAADAAAAAAABAB0AAAAEAAAAAAABAB0AAAAFAAAAAAABAB0AAAAGAAAAAAABAB0AAAAHAAAAAAABAB0AAAAIAAAAAAABAB0AAAAJAAAAAAABAB0AAAAKAAAAAAABAB0AAAALAAAAAAABAB0AAAAMAAAAAAABAB0AAAANAAAAAAABAB0AAAAOAAAAAAABAB0AAAAPAAAAAAABAB0AAAARAAAAAAABAB0AAAAQAAAAAAABAB0AAAAAAAEAAAABAB4AAAAAAAIAAAABAB0AAAAAAAMAAAABAB4AAAAAAAQAAAABAB0AAAAAAAUAAAABAB4AAAAAAAYAAAABAB0AAAAAAAcAAAABAB4AAAAAAAgAAAABAB0AAAAAAAkAAAABAB4AAAABAAkAAAABAB8AAAACAAkAAAABAB8AAAADAAkAAAABAB8AAAAEAAkAAAABAB8AAAAFAAkAAAABAB8AAAAGAAkAAAABAB8AAAAHAAkAAAABAB8AAAAIAAkAAAABAB8AAAAJAAkAAAABAB8AAAAKAAkAAAABAB8AAAALAAkAAAABAB8AAAAMAAkAAAABAB8AAAANAAkAAAABAB8AAAAOAAkAAAABAB8AAAAPAAkAAAABAB8AAAAQAAkAAAABAB8AAAARAAkAAAABAB4AAAARAAgAAAABAB0AAAARAAcAAAABAB4AAAARAAYAAAABAB0AAAARAAUAAAABAB4AAAARAAQAAAABAB0AAAARAAMAAAABAB4AAAARAAIAAAABAB0AAAARAAEAAAABAB4AAAAIAAMAAAABAB0AAAAIAAQAAAABAB4AAAAMAAUAAAABAB0AAAAMAAYAAAABAB4AAAAHAAgAAAABAB4AAAAIAAgAAAABAB4AAAAJAAgAAAABAB4AAAA=")
 tile_set = SubResource("TileSet_bguaa")
+script = ExtResource("2_p2bdl")
 
 [node name="win_zone" type="Area2D" parent="." unique_id=239272699]
 position = Vector2(240, 42)
-script = ExtResource("2_op3fb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win_zone" unique_id=1825797445]
 shape = SubResource("CircleShape2D_n7mfn")
@@ -559,4 +567,8 @@ position = Vector2(30, 94)
 tile_map_data = PackedByteArray("AAABAAgAAAACAAoAAAACAAgAAAACAAoAAAADAAgAAAACAAoAAAAEAAgAAAACAAoAAAAFAAgAAAACAAoAAAAGAAgAAAACAAoAAAAKAAgAAAACAAoAAAALAAgAAAACAAoAAAAMAAgAAAACAAoAAAANAAgAAAACAAoAAAAOAAgAAAACAAoAAAAPAAgAAAACAAoAAAAQAAgAAAACAAoAAAABAAEAAAACAAkAAAACAAEAAAACAAkAAAADAAEAAAACAAkAAAAEAAEAAAACAAkAAAAFAAEAAAACAAkAAAAGAAEAAAACAAkAAAAHAAEAAAACAAkAAAAIAAEAAAACAAkAAAAJAAEAAAACAAkAAAAKAAEAAAACAAkAAAALAAEAAAACAAkAAAAMAAEAAAACAAkAAAANAAEAAAACAAkAAAAOAAEAAAACAAkAAAAPAAEAAAACAAkAAAAQAAEAAAABAAoAAAAQAAIAAAABAAoAAAAQAAMAAAABAAoAAAAQAAQAAAABAAoAAAAQAAUAAAABAAoAAAAQAAYAAAABAAoAAAAQAAcAAAABAAoAAAAIAAIAAAACAAoAAAAMAAQAAAACAAoAAAA=")
 tile_set = SubResource("TileSet_6k8qn")
 
-[connection signal="body_entered" from="win_zone" to="win_zone" method="_on_body_entered"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1397977065]
+position = Vector2(144, 80)
+enabled = false
+
+[connection signal="body_entered" from="win_zone" to="." method="_on_win_zone_body_entered"]
