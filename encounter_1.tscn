@@ -547,6 +547,15 @@ texture = ExtResource("1_p2bdl")
 [sub_resource type="TileSet" id="TileSet_6k8qn"]
 sources/0 = SubResource("TileSetAtlasSource_y3ooi")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k8qn"]
+size = Vector2(269.25, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agkxp"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bguaa"]
+size = Vector2(16, 10)
+
 [node name="Encounter_1" type="TileMapLayer" unique_id=1974732102]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAB0AAAABAAAAAAABAB0AAAACAAAAAAABAB0AAAADAAAAAAABAB0AAAAEAAAAAAABAB0AAAAFAAAAAAABAB0AAAAGAAAAAAABAB0AAAAHAAAAAAABAB0AAAAIAAAAAAABAB0AAAAJAAAAAAABAB0AAAAKAAAAAAABAB0AAAALAAAAAAABAB0AAAAMAAAAAAABAB0AAAANAAAAAAABAB0AAAAOAAAAAAABAB0AAAAPAAAAAAABAB0AAAARAAAAAAABAB0AAAAQAAAAAAABAB0AAAAAAAEAAAABAB4AAAAAAAIAAAABAB0AAAAAAAMAAAABAB4AAAAAAAQAAAABAB0AAAAAAAUAAAABAB4AAAAAAAYAAAABAB0AAAAAAAcAAAABAB4AAAAAAAgAAAABAB0AAAAAAAkAAAABAB4AAAABAAkAAAABAB8AAAACAAkAAAABAB8AAAADAAkAAAABAB8AAAAEAAkAAAABAB8AAAAFAAkAAAABAB8AAAAGAAkAAAABAB8AAAAHAAkAAAABAB8AAAAIAAkAAAABAB8AAAAJAAkAAAABAB8AAAAKAAkAAAABAB8AAAALAAkAAAABAB8AAAAMAAkAAAABAB8AAAANAAkAAAABAB8AAAAOAAkAAAABAB8AAAAPAAkAAAABAB8AAAAQAAkAAAABAB8AAAARAAkAAAABAB4AAAARAAgAAAABAB0AAAARAAcAAAABAB4AAAARAAYAAAABAB0AAAARAAUAAAABAB4AAAARAAQAAAABAB0AAAARAAMAAAABAB4AAAARAAIAAAABAB0AAAARAAEAAAABAB4AAAAIAAMAAAABAB0AAAAIAAQAAAABAB4AAAAMAAUAAAABAB0AAAAMAAYAAAABAB4AAAAHAAgAAAABAB4AAAAIAAgAAAABAB4AAAAJAAgAAAABAB4AAAA=")
 tile_set = SubResource("TileSet_bguaa")
@@ -561,7 +570,7 @@ shape = SubResource("CircleShape2D_n7mfn")
 [node name="Sprite2D" type="Sprite2D" parent="win_zone" unique_id=72602130]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=565203995]
-position = Vector2(30, 94)
+position = Vector2(59, 96)
 
 [node name="Spikes" type="TileMapLayer" parent="." unique_id=971651812]
 tile_map_data = PackedByteArray("AAABAAgAAAACAAoAAAACAAgAAAACAAoAAAADAAgAAAACAAoAAAAEAAgAAAACAAoAAAAFAAgAAAACAAoAAAAGAAgAAAACAAoAAAAKAAgAAAACAAoAAAALAAgAAAACAAoAAAAMAAgAAAACAAoAAAANAAgAAAACAAoAAAAOAAgAAAACAAoAAAAPAAgAAAACAAoAAAAQAAgAAAACAAoAAAABAAEAAAACAAkAAAACAAEAAAACAAkAAAADAAEAAAACAAkAAAAEAAEAAAACAAkAAAAFAAEAAAACAAkAAAAGAAEAAAACAAkAAAAHAAEAAAACAAkAAAAIAAEAAAACAAkAAAAJAAEAAAACAAkAAAAKAAEAAAACAAkAAAALAAEAAAACAAkAAAAMAAEAAAACAAkAAAANAAEAAAACAAkAAAAOAAEAAAACAAkAAAAPAAEAAAACAAkAAAAQAAEAAAABAAoAAAAQAAIAAAABAAoAAAAQAAMAAAABAAoAAAAQAAQAAAABAAoAAAAQAAUAAAABAAoAAAAQAAYAAAABAAoAAAAQAAcAAAABAAoAAAAIAAIAAAACAAoAAAAMAAQAAAACAAoAAAA=")
@@ -571,4 +580,27 @@ tile_set = SubResource("TileSet_6k8qn")
 position = Vector2(144, 80)
 enabled = false
 
+[node name="Area2D" type="Area2D" parent="." unique_id=470078068]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=14419543]
+position = Vector2(143, 150)
+shape = SubResource("RectangleShape2D_6k8qn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=777980403]
+position = Vector2(276, 74)
+shape = SubResource("RectangleShape2D_agkxp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=933766478]
+position = Vector2(136, 48)
+shape = SubResource("RectangleShape2D_bguaa")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D" unique_id=876942941]
+position = Vector2(136, 11)
+shape = SubResource("RectangleShape2D_6k8qn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D" unique_id=1787626339]
+position = Vector2(200, 80)
+shape = SubResource("RectangleShape2D_bguaa")
+
 [connection signal="body_entered" from="win_zone" to="." method="_on_win_zone_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

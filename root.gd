@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 func create_encounter(Enemy_type,number_of_encounter):
 	var creature_type_encounter = dictionary_of_creatures[Enemy_type]
 	var encounter = creature_type_encounter[number_of_encounter].instantiate()
+	%Slime.TP_pos = %Slime.global_position
 	encounter.get_node("Camera2D").enabled = true
 	encounter.global_position.x = 1000
 	encounter.global_position.y = 1000

@@ -8,10 +8,11 @@ var enemySpeed = 5000
 @onready var root:Node2D = $".."
 var rnd = RandomNumberGenerator
 var encounter_number = 1
+var HP = 20
+var DMG = 20
 func _ready():
 	pass
 #	encounter_number = randi() % 5 + 1
-#	print(encounter_number)
 func _process(delta):
 	if ray.collide_with_bodies == false:
 		time += delta 
@@ -41,4 +42,5 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body == player: 
 		player.encounter = true
 		root.create_encounter("Skeleton",encounter_number)
+		queue_free()
 	

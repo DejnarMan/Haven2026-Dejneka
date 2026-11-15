@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -40.0
+const JUMP_VELOCITY = -10.0
 const SMALL_JUMP_VELOCITY = -400
 var state :String= "Movement"
 var mouse_pos: Vector2= Vector2.ZERO
@@ -10,8 +10,12 @@ var starting_mouse_pos: Vector2 = Vector2.ZERO
 var mouse_vector: Vector2 = Vector2.ZERO
 var mouse_distance: float= 0
 var encounter :bool = false
+var HP :int = 100
+var TP_pos :Vector2 = Vector2.ZERO
+var DMG = 10
+
 func _physics_process(delta: float) -> void:
-	print(state)
+
 	match state:
 		"Movement":
 			
@@ -48,7 +52,6 @@ func _physics_process(delta: float) -> void:
 				var angle = snapped(velocity.angle(), PI / 4)
 				var index = wrapi(roundi(angle / (PI / 4)), 0, 8)
 				var index_to_frame = {0:1,1:5,2:0,3:4,4:3,5:6,6:2,7:7,8:1}
-				print(index,index_to_frame[index])
 				$Icon.frame = index_to_frame[index]
 			$Camera2D.enabled = true
 		"Jumping":
@@ -78,7 +81,6 @@ func _physics_process(delta: float) -> void:
 				var angle = snapped(velocity.angle(), PI / 4)
 				var index = wrapi(roundi(angle / (PI / 4)), 0, 8)
 				var index_to_frame = {0:1,1:5,2:0,3:4,4:3,5:6,6:2,7:7,8:1}
-				print(index,index_to_frame[index])
 				$Icon.frame = index_to_frame[index]
 			if Input.is_action_just_pressed("aim"): 
 				state = "Jumping"
